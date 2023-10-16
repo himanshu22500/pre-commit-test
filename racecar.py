@@ -11,7 +11,7 @@ class Car:
 
         self._tyre_friction = tyre_friction
         if max_speed < 0:
-            raise ValueError('Invalid value for max_speed')
+            raise ValueError("Invalid value for max_speed")
         else:
             self._max_speed = max_speed
 
@@ -49,7 +49,10 @@ class Car:
     def accelerate(self):
         if not self.is_engine_started:
             raise InvalidAcceleraionState("Start the engine to accelerate")
-        elif self._is_engine_started and self.current_speed + self.acceleration <= self.max_speed:
+        elif (
+            self._is_engine_started
+            and self.current_speed + self.acceleration <= self.max_speed
+        ):
             self._current_speed += self.acceleration
 
     def apply_brakes(self):
@@ -71,7 +74,7 @@ class RaceCar(Car):
             color=color,
             max_speed=max_speed,
             acceleration=acceleration,
-            tyre_friction=tyre_friction
+            tyre_friction=tyre_friction,
         )
         self.nitro = nitro
 
